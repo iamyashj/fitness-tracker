@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+/* Inline CSS */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background-color: #f2f2f2;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+  margin-bottom: 20px;
+  padding: 0 15px;
+}
+
+.card {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #333;
+  color: white;
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 10px 20px;
+  color: white;
+  background-color: #555;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.button:hover {
+  background-color: #961616;
+}
+
+@media screen and (max-width: 768px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Back button -->
+<button class="button" onclick="window.location.href='index.html'">&#8592; Back to Home</button>
+
+<!-- Enhanced about section -->
+<div class="about-section">
+  <h1>About Us</h1>
+  <p>We are a team of passionate fitness enthusiasts who believe that everyone should have access to high-quality fitness resources and guidance. Our mission is to help people establish and maintain a healthy lifestyle by providing accessible customized fitness plans and resources.</p>
+</div>
+
+<h2 style="text-align:center; color: #333;">Our Mission</h2>
+
+<!-- Enhanced row section -->
+<div class="row" style="display: flex; justify-content: space-around;">
+
+  <!-- Enhanced column 1 -->
+  <div class="column">
+    <div class="card">
+      <img src="img/team1.png" alt="" style="width:100%">
+      <div class="container">
+        <h2 style="color: #333;">Empowerment</h2>
+        <p>We aim to empower individuals to take charge of their health through our user-friendly platform and expert guidance.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Enhanced column 2 -->
+  <div class="column">
+    <div class="card">
+      <img src="img/t2.png" alt="" style="width:100%">
+      <div class="container">
+        <h2 style="color: #333;">Community</h2>
+        <p>We foster a supportive and inclusive community where individuals can connect, learn, and grow.</p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Enhanced column 3 -->
+  <div class="column">
+    <div class="card">
+      <img src="img/ab.jpg" alt="" style="width:100%">
+      <div class="container">
+        <h2 style="color: #333;">Core Values</h2>
+        <p>Our goal is to provide a personalized, accessible, and effective fitness experience for all individuals, regardless of their background, age, or fitness level.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yoga Practice Journal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input, textarea {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        button {
+            background-color:rgb(9, 203, 135);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+        button:hover {
+            background-color:grey;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Yoga </h1>
+        <form id="journalForm">
+            <label for="date">Date:</label>
+            <input type="date" id="date" required>
+            <label for="practiceType">Type of Practice:</label>
+            <input type="text" id="practiceType" placeholder="Hatha, Vinyasa, Yin, etc." required>
+            <label for="duration">Duration (minutes):</label>
+            <input type="number" id="duration" min="1" required>
+            <label for="reflections">Reflections:</label>
+            <textarea id="reflections" rows="4" placeholder="How did you feel during and after the practice?"></textarea>
+            <button type="submit">Add Entry</button>
+        </form>
+        <div id="entries"></div>
+    </div>
+
+    <script>
+        const journalForm = document.getElementById('journalForm');
+        const entriesContainer = document.getElementById('entries');
+
+        journalForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const date = document.getElementById('date').value;
+            const practiceType = document.getElementById('practiceType').value;
+            const duration = document.getElementById('duration').value;
+            const reflections = document.getElementById('reflections').value;
+
+            // Create a new entry
+            const entry = document.createElement('div');
+            entry.classList.add('entry');
+            entry.innerHTML = `
+                <p><strong>Date:</strong> ${date}</p>
+                <p><strong>Type of Practice:</strong> ${practiceType}</p>
+                <p><strong>Duration:</strong> ${duration} minutes</p>
+                <p><strong>Reflections:</strong> ${reflections}</p>
+            `;
+
+            entriesContainer.appendChild(entry);
+
+            // Clear form fields
+            journalForm.reset();
+        });
+    </script>
+</body>
+</html>

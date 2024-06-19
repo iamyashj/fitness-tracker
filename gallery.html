@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Fitness Tracker Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: bolder;
+            font-size: 2rem;
+            margin-top: 2rem;
+            color: #4e2472;
+        }
+        
+        .exercise-gallery, .recipe-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 20px;
+        }
+        
+        .exercise-item, .recipe-item {
+            text-align: center;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .exercise-item:hover, .recipe-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        iframe {
+            width: 100%;
+            height: 250px;
+            background-size: cover;
+            border-color: black;
+            border-radius: 10px;
+        }
+        
+        .recipe-item img {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: purple;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .back-btn:hover {
+            background-color: #6a1b9a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-btn">&#8592; Back</a>
+        <section id="exercise-demonstrations">
+            <h2>Exercise Demonstrations</h2>
+            <div class="exercise-gallery">
+                <div class="exercise-item">
+                    <iframe width="560" height="315" src="vido/running1.mp4" frameborder="0" allowfullscreen></iframe>
+                    <p>Running is a popular aerobic exercise that improves<br>cardiovascular health, strengthens muscles, and boosts mood and overall well-being by moving rapidly on foot.</p>
+                </div>
+                <div class="exercise-item">
+                    <iframe width="560" height="315" src="vido/cycling1.mp4" frameborder="0" allowfullscreen></iframe>
+                    <p>Cycling is a low-impact cardiovascular exercise that enhances cardiovascular fitness, strengthens leg muscles, burns calories, and reduces joint stress</p>
+                </div>
+
+                <div class="exercise-item">
+                    <iframe width="560" height="315" src="vido/wloss.mp4" frameborder="0" allowfullscreen></iframe>
+                    <p>Weight loss exercise involves physical activities that burn calories, increase metabolism, and promote fat loss, targeting various muscle groups and energy systems in the body.</p>
+                </div>
+
+                <div class="exercise-item">
+                    <iframe width="560" height="315" src="vido/hit1.mp4" frameborder="0" allowfullscreen></iframe>
+                    <p>HIIT cardio exercises, such as sprinting, jumping jacks, and burpees, can be combined with rest periods for a progressive workout</p>
+                </div>
+
+                <div class="exercise-item">
+                    <iframe width="560" height="315" src="vido/warmup.mp4" frameborder="0" allowfullscreen></iframe>
+                    <p>A warm-up is essential before any workout. It helps prepare your body for more strenuous activity and reduces the risk of injury</p>
+                </div>
+
+                <div class="exercise-item">
+                    <iframe width="560" height="315" src="vido/bed_ex.mp4" frameborder="0" allowfullscreen></iframe>
+                    <p>Explore gentle exercises while sitting or lying down, including deep breathing, ankle circles, knee-to-chest stretches, and neck stretches. 🌿</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="healthy-recipes">
+            <h2>Healthy Recipes and Meal Ideas</h2>
+            <div class="recipe-gallery">
+                <div class="recipe-item">
+                    <img src="img/overnightoats.webp" alt="Healthy Recipe 1">
+                    <h3>Overnight-Oats Recipe 🌙🥣 </h3>
+                    <p> In a small jar, stir together the oats, milk, yogurt, chia seeds, and maple syrup.
+                        Place the jar in the fridge to let the oats soak for at least 2 hours (overnight is even better).
+                        Before serving, add your favorite toppings like fresh fruit, nuts, or seeds</p>
+                </div>
+                <div class="recipe-item">
+                    <img src="img/Vegetable and Bean Soup.jpg" alt="Healthy Recipe 2">
+                    <h3>Vegetable and Bean Soup Recipe 🌱🥣 </h3>
+                    <p>In a large pot, sauté onion, garlic, carrots, celery, bell pepper, tomatoes, broth, beans, thyme, and oregano. Simmer for 20-25 minutes until tender and flavors meld. Season with salt and pepper to taste and adjust seasoning as needed.</p>
+                </div>
+
+                <div class="recipe-item">
+                    <img src="img/roastedsweetpotatoes.jpg" alt="Healthy Recipe 2">
+                    <h3>Baked Sweet Potato with Greek Yogurt Recipe🌱🥣</h3>
+                    <p>Preheat oven to 450°F, place sweet potatoes on baking sheet, roast for 45-60 minutes, slice, scoop flesh, whip cream cheese, butter, Greek yogurt, cinnamon, nutmeg, salt, pepper, stuff back into skins, top with grated cheddar cheese, bake for 20 minutes, or until cheese is golden and potatoes are warmed through.</p>
+                </div>
+
+                <div class="recipe-item">
+                    <img src="img/veggie salad.jpg" alt="Healthy Recipe 2">
+                    <h3>Vegetable Salad Recipe 🥗</h3>
+                    <p>Prepare a colorful salad by washing and chopping vegetables like carrots, onions, cucumber, tomatoes, beetroot, zucchini, green chilies (optional), and olive oil, tossing them together, adding salt, black pepper, and olive oil, and serving immediately.</p>
+                </div>
+
+                <div class="recipe-item">
+                    <img src="img/Lemon Water with Honey.webp" alt="Healthy Recipe 2">
+                    <h3>Lemon Water with Honey Recipe 🍋🍯 </h3>
+                    <p>Mix half a lemon with lukewarm water, optionally add honey for sweetness, and consume on an empty stomach every morning.</p>
+                </div>
+
+                <div class="recipe-item">
+                    <img src="img/smothy.jpg" alt="Healthy Recipe 2">
+                    <h3>Berry Smoothie Recipe 🍓🥤</h3>
+                    <p>A refreshing and nutritious drink.<br>Blend frozen mixed berries, banana, Greek yogurt, honey, and almond milk until smooth. Adjust sweetness with honey. Enjoy!</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script>
+        const videos = document.querySelectorAll('video');
+        
+        videos.forEach(video => {
+            video.addEventListener('click', () => {
+                pauseAllVideos();
+                video.play();
+            });
+        });
+        
+        function pauseAllVideos() {
+            videos.forEach(video => {
+                video.pause();
+            });
+        }
+    </script>
+</body>
+</html>

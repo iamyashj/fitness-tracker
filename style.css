@@ -1,0 +1,293 @@
+body{
+    margin: 0;
+    padding:0 ;
+}
+.header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 3px;
+    background-color:#333;
+}
+/* navbar design css */
+/* Navbar container */
+.navbar {
+    background-color:purple;
+    overflow: hidden;
+}
+
+/* Logo */
+.logo {
+    float: left;
+    padding:15px ;
+}
+.logo b{
+    color: white;
+    font-size:30px ;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+
+}
+#sign{
+   height:50px ; 
+   width:100px ;
+   background-color:grey ;
+}
+/* home page design start */
+
+/* home page design end */
+
+/* Menu items */
+.menu {
+    float: right;
+    display: inline-flex;
+    padding:15px ;
+}
+
+/* Button */
+.button {
+    float: right;
+    margin-right: 20px;
+    margin-top: 8px;
+    background-color:purple;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding:15px ;
+}
+
+/* Style links */
+.menu a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+    font-size:20px ;
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+/* Change color on hover */
+.menu a:hover {
+    background-color: #ddd;
+    color: black;
+}
+/* home page start */
+#home {
+    background-image:url('img/homepage.jpg'); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    height:100vh;
+    width: 100%;
+    display:grid ;
+    grid-template-columns: 1fr;
+}
+#heading{
+    
+    color: white;
+    margin:160px ;
+}
+#heading h1{
+    
+    color: white;
+    font-size: 70px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+#heading i{
+    
+    color: white;
+    font-size: 40px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+#heading input{
+    
+    color: white;
+    font-size: 30px;
+    background-color: purple;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#start-tracking {
+    width: 200px;
+    background-color:purple;
+    color: white;
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 20px 0px;
+    cursor: pointer;
+}
+
+#start-tracking:hover {
+    background-color:gray;
+}
+
+
+/* home page end */
+
+/* about section start */
+
+/* about section end */
+
+/* gallary section start */
+.gallary{
+    margin-top: 10px;
+    height:100vh ;
+    width:100%; 
+    background-image:url('img/activity.jpg.jpeg') ;
+    background-size:cover ;
+    background-position: center;
+}
+/* gallary section end */
+/* goal section start */
+#goal{
+    margin-top: 10px;
+    height: 600px;
+    background-position:center ;
+    background-size:cover;
+}
+
+.goal1 {
+width:800px;
+margin: auto;
+}
+#para li{
+    font-family: 'Courier New', Courier, monospace;
+    font-size:20px ;
+    color:white ;
+    font-family: 'Courier New', Courier, monospace;
+    letter-spacing:3px ;
+}
+#para h1{
+    font-family: 'Times New Roman', Times, serif;
+    font-size:50px ;
+    color:white ;
+}
+#fitness{
+    background-image:url('img/page6.webp') ;
+    background-position:center ;
+    background-size:cover ;
+    height:600px ;
+    opacity:0.7 ;
+}
+/* goal section end */
+/* start with fitness img section */
+#img{
+    height:400px;
+    display: grid;
+    grid-template-columns:1fr 1fr 1fr ;
+}
+#main{
+    margin:20px ;
+}
+.c1{
+    background-image: url('img/goal1.jpg');
+    background-size: cover;
+    background-position:center; 
+}
+.c2{
+    background-image: url('img/goal2.webp');
+    background-size: cover;
+    background-position:center; 
+}
+.c3{
+    background-image: url('img/goal3.jpg');
+    background-size: cover;
+    background-position:center; 
+}
+.c4{    
+    background-image: url('img/goal4.webp');
+    background-size: cover;
+    background-position:center; 
+}
+/* end with fitness img section */
+/* login page start */
+
+.login-container {
+    width: 600px;
+    margin: 100px auto;
+    background-color: #fff;
+    padding: 60px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+input[type="text"],
+input[type="password"],
+button {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: purple;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: purple;
+}
+/* login page end */
+/* last section css  start*/
+footer {
+    background-color:purple;
+    padding: 2rem 0;
+  }
+  
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  .footer-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 1rem;
+  }
+  
+  .footer-column h3 {
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+
+  
+  
+  .footer-column p {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+  
+  .footer-column img {
+    width: 50px;
+    height: 50px;
+    margin: 0 0.5rem;
+  }
+  
+  .copyright {
+    text-align: center;
+    font-size: 0.8rem;
+    padding: 1rem 0;
+  } 
+
+  

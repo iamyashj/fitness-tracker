@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HIIT Cardio Tracker</title>
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+.container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+#output {
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+  </style>
+ </head>
+<body>
+  <div class="container">
+    <h1>HIIT Cardio Tracker</h1>
+    <div class="form-group">
+      <label for="duration">Total Duration (minutes):</label>
+      <input type="number" id="duration" min="1">
+    </div>
+    <div class="form-group">
+      <label for="intensity">Intensity (1-10):</label>
+      <input type="number" id="intensity" min="1" max="10">
+    </div>
+    <div class="form-group">
+      <label for="intervals">Number of Intervals:</label>
+      <input type="number" id="intervals" min="1">
+    </div>
+    <div class="form-group">
+  <label for="weight">Weight (kg):</label>
+  <input type="number" id="weight" min="1">
+</div>
+
+    <button onclick="recordWorkout()">Record Workout</button>
+    <div id="output"></div>
+  </div>
+  <script>
+    function recordWorkout() {
+  const duration = parseFloat(document.getElementById('duration').value);
+  const intensity = parseFloat(document.getElementById('intensity').value);
+  const intervals = parseFloat(document.getElementById('intervals').value);
+  const weight = parseFloat(document.getElementById('weight').value);
+
+  // Calculate MET value based on intensity (assuming a fixed MET value for HIIT)
+  const MET = 8; // MET value for vigorous-intensity activities including HIIT
+
+  // Calculate total calories burned using the formula: Calories = MET * Weight (kg) * Duration (hours)
+  const caloriesBurned = MET * weight * (duration / 60); // Convert duration from minutes to hours
+
+  const output = document.getElementById('output');
+  output.innerHTML = `
+    <p>Total Duration: ${duration} minutes</p>
+    <p>Intensity: ${intensity}/10</p>
+    <p>Number of Intervals: ${intervals}</p>
+    <p>Weight: ${weight} kg</p>
+    <p>Estimated Calories Burned: ${caloriesBurned.toFixed(2)} calories</p>
+  `;
+}
+
+
+  </script>
+</body>
+</html>

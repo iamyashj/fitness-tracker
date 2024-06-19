@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register</title>
+<style>
+    /* Inline CSS for responsiveness and layout */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+    }
+    
+    .container {
+        width: 50%;
+        margin: 100px auto;
+        background-color: #e7e7e7;
+        padding: 20px;
+        border-radius: 5px;
+    }
+    
+    h2 {
+        text-align: center;
+    }
+    
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    button {
+        width: calc(100% - 40px);
+        padding: 10px;
+        margin-top: 8px;
+        margin-bottom: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+    
+    button {
+        background-color: purple;
+        color: white;
+        cursor: pointer;
+    }
+    
+    button:hover {
+        background-color: darkpurple;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Register</h2>
+    <form id="registrationForm">
+        Username: <input type="text" id="username" required><br>
+        Password: <input type="password" id="password" required><br>
+        Email: <input type="email" id="email" required><br>
+        <button type="button" onclick="registerUser()">Register</button>
+    </form>
+</div>
+
+<script>
+    // JavaScript code for registration functionality
+    function registerUser() {
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+        var email = document.getElementById('email').value;
+
+        // Create a user object to store the data
+        var user = {
+            username: username,
+            password: password,
+            email: email
+        };
+
+        // Convert the user object into a string for localStorage
+        var userStr = JSON.stringify(user);
+
+        // Store the user information in localStorage
+        localStorage.setItem('userInfo', userStr);
+
+        // Redirect to login page after registration
+        window.location.href = 'login.html';
+    }
+</script>
+
+</body>
+</html>

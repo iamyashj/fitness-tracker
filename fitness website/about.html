@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+}
+
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #474e5d;
+  color: white;
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="about-section">
+  <h1>About Us</h1>
+  <p>We are a team of passionate fitness enthusiasts who believe that everyone should have access to high-quality fitness resources and guidance. Our mission is to help people establish and maintain a healthy lifestyle by providing accessible customized fitness plans and resources.</p>
+  <p></p>
+</div>
+
+<h2 style="text-align:center">Our Mission</h2>
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <img src="img/team1.png" alt="" style="width:100%">
+      <div class="container">
+        <h2>Empowerment</h2>
+        
+        <p>We aim to empower individuals to take
+            charge of their health through our
+            user-friendly platform
+            and
+            expert guidance.</p>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="img/t2.png" alt="" style="width:100%">
+      <div class="container">
+        <h2>Community</h2>
+        
+        <p>We foster a supportive
+            and
+            inclusive community where
+            individuals can connect,
+            learn, and grow.</p>
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="card">
+      <img src="img/ab.jpg" alt="" style="width:100%">
+      <div class="container">
+        <h2>Core Values</h2>
+       
+        <p>Our goal is to provide a personalized, accessible, and effective fitness experience for all individuals, regardless of their background, age, or fitness level.</p>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login</title>
+<style>
+    /* Inline CSS for responsiveness and layout */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+    }
+    
+    .container {
+        width: 50%;
+        margin: 100px auto;
+        background-color: #e7e7e7;
+        padding: 20px;
+        border-radius: 5px;
+    }
+    
+    h2 {
+        text-align: center;
+    }
+    
+    input[type="text"],
+    input[type="password"],
+    button {
+        width: calc(100% - 40px);
+        padding: 10px;
+        margin-top: 8px;
+        margin-bottom: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+    
+    button {
+        background-color: purple;
+        color: white;
+        cursor: pointer;
+    }
+    
+    button:hover {
+        background-color: darkpurple;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Login</h2>
+    <form id="loginForm">
+        Username: <input type="text" id="loginUsername" required><br>
+        Password: <input type="password" id="loginPassword" required><br>
+        <button type="button" onclick="loginUser()">Login</button>
+    </form>
+    <p>Don't have an account? <a href="register.html">Register</a></p>
+</div>
+
+<script>
+    // JavaScript code for login functionality
+    function loginUser() {
+        var username = document.getElementById('loginUsername').value;
+        var password = document.getElementById('loginPassword').value;
+
+        // Retrieve the stored user information from localStorage
+        var storedUser = localStorage.getItem('userInfo');
+        var userInfo = JSON.parse(storedUser);
+
+        // Check if the entered details match the stored data
+        if (userInfo && username === userInfo.username && password === userInfo.password) {
+            // Redirect to index.html after successful login
+            window.location.href = 'index.html';
+        } else {
+            alert('Incorrect username or password.');
+        }
+    }
+</script>
+
+</body>
+</html>

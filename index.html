@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Tracker Website</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            background-color: #333;
+            color: white;
+            overflow: hidden;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        /* Logout popup styles */
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fefefe;
+            border: 1px solid #888;
+            width: 300px;
+            padding: 20px;
+            z-index: 1;
+            display: none;
+        }
+
+        .popup h2 {
+            text-align: center;
+            margin-top: 0;
+        }
+
+        .popup button {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        /* Add your other styles here */
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+        <a href="#" id="loginButton">Login</a>
+        <span id="userName" style="display: none;">Welcome, John Doe</span>
+    </div>
+
+    <!-- Logout Popup -->
+    <div id="logoutPopup" class="popup">
+        <h2>Logout</h2>
+        <p>Are you sure you want to logout?</p>
+        <button id="logoutBtn">Logout</button>
+        <button onclick="closePopup()">Cancel</button>
+    </div>
+
+    <h1>Welcome to Fitness Tracker</h1>
+    <p>Track your fitness progress and achieve your goals with us.</p>
+
+    <script>
+        // Add your JavaScript code here
+        // Function to toggle the logout popup
+        function openPopup() {
+            document.getElementById('logoutPopup').style.display = 'block';
+        }
+
+        // Function to close the logout popup
+        function closePopup() {
+            document.getElementById('logoutPopup').style.display = 'none';
+        }
+
+        // Event listener for the logout button
+        document.getElementById('loginButton').addEventListener('click', function() {
+            if (localStorage.getItem('username')) {
+                document.getElementById('userName').style.display = 'block';
+                document.getElementById('loginButton').innerHTML = 'Logout';
+                document.getElementById('loginButton').removeEventListener('click', openPopup);
+                document.getElementById('loginButton').addEventListener('click', openPopup);
+            } else {
+                window.location.href = 'login.html';
+            }
+        });
+
+        // Event listener for the logout button inside the popup
+        document.getElementById('logoutBtn').addEventListener('click', function() {
+            localStorage.removeItem('username');
+            document.getElementById('userName').style.display = 'none';
+            document.getElementById('loginButton').innerHTML = 'Login';
+            document.getElementById('loginButton').removeEventListener('click', openPopup);
+            document.getElementById('loginButton').addEventListener('click', function() {
+                window.location.href = 'login.html';
+            });
+            closePopup();
+        });
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fitness Tracker</title>
+<title>Fitness Tracker Website</title>
+<style>
+    /* Add your CSS styles here */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Navbar styles */
+    .navbar {
+        background-color: #333;
+        color: white;
+        overflow: hidden;
+    }
+
+    .navbar a {
+        float: left;
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 20px;
+        text-decoration: none;
+    }
+
+    .navbar a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+
+    /* Logout popup styles */
+    .popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fefefe;
+        border: 1px solid #888;
+        width: 300px;
+        padding: 20px;
+        z-index: 1;
+        display: none;
+    }
+
+    .popup h2 {
+        text-align: center;
+        margin-top: 0;
+    }
+
+    .popup button {
+        background-color: #333;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+
+/* Global styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f2; /* Light grey background */
+  transition: background-color 0.3s ease;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header styles */
+.header {
+  background-color: #663399; /* Purple color */
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.header h3 {
+  margin: 0;
+}
+
+/* Navbar styles */
+.navbar {
+  background-color: #663399; /* Purple color */
+  overflow: hidden;
+  padding: 10px 0;
+  border-bottom: 2px solid #5a2d83; /* Darker shade of purple */
+}
+
+.navbar .container {
+  border-right: 2px solid #5a2d83; /* Darker shade of purple */
+}
+
+.navbar .logo {
+  float: left;
+  padding: 10px;
+  font-size: 24px;
+}
+
+.navbar .menu {
+  float: right;
+}
+
+.navbar .menu a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+}
+
+/* Home page section styles */
+.home-section {
+  background-image: url('img/homepage.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 100px 0;
+  text-align: center;
+  color: white;
+}
+
+.home-section h1 {
+  font-size: 48px;
+}
+
+.home-section i {
+  font-size: 24px;
+}
+
+.home-section button {
+  background-color: #663399; /* Purple color */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.home-section button:hover {
+  background-color: #5a2d83; /* Darker shade of purple */
+}
+
+/* Gallery section styles */
+.gallery-section {
+  background-image: url('img/activity.jpg.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 100px 0;
+  text-align: center;
+}
+
+/* Footer styles */
+.footer {
+  background-color: #663399; /* Purple color */
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.footer ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer ul li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.footer ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer p {
+  margin: 10px 0;
+}
+
+/* Night mode toggle button */
+.toggle-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 999;
+}
+
+.toggle-container input[type="checkbox"] {
+  display: none;
+}
+
+.toggle-label {
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+  background-color: #ddd; /* Light grey background */
+  border-radius: 15px;
+  position: relative;
+  cursor: pointer;
+}
+
+.toggle-label:before {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #fff; /* White circle */
+  top: 0;
+  left: 0;
+  transition: transform 0.3s ease;
+}
+
+.toggle-container input[type="checkbox"]:checked + .toggle-label:before {
+  transform: translateX(30px); /* Move the circle to the right */
+}
+
+.toggle-icon {
+  font-size: 24px;
+  line-height: 30px;
+  color: #663399; /* Purple color */
+  position: absolute;
+  top: 0;
+  left: 5px;
+}
+
+/* Night mode styles */
+body.night-mode {
+  background-color: #333; /* Dark grey background */
+  color: white;
+}
+
+</style>
+</head>
+<body>
+
+<!-- Night mode toggle button -->
+<div class="toggle-container">
+  <input type="checkbox" id="night-mode-toggle">
+  <label class="toggle-label" for="night-mode-toggle">
+    <span class="toggle-icon">&#127765;</span> <!-- Crystal moon icon -->
+  </label>
+</div>
+
+<!-- Header section -->
+<div class="header">
+  <h3>Fitness Tracker</h3>
+</div>
+
+<!-- Navbar section -->
+<div class="navbar">
+  <div class="container">
+    <div class="logo">🧘🏻‍♀️FitRoute</div>
+    <div class="menu">
+      <a href="#">Home</a>
+      <a href="about.html">About</a>
+      <a href="activity.html">Activity</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html" id="loginButton">Login</a>
+      <span id="userName" style="display: none;">Welcome, John Doe</span>
+  </div>
+  </div>
+</div>
+
+<!-- Home page section -->
+<div class="home-section">
+  <div class="container">
+    <h1>"Push Yourself"</h1>
+    <i>Anytime, Anywhere</i>
+    <br><br>
+    <button id="start-tracking">Start Tracking</button>
+  </div>
+</div>
+
+<!-- Gallery section -->
+<div class="gallery-section">
+  <div class="container">
+    <h2>Gallery</h2>
+    <!-- Gallery images here -->
+  </div>
+</div>
+
+<!-- Footer section -->
+<footer class="footer">
+  <div class="container">
+    <ul>
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="#">Terms of Service</a></li>
+      <li><a href="#">Contact Us</a></li>
+    </ul>
+    <p>&copy; 2024 Fitness Tracker. All rights reserved.</p>
+  </div>
+</footer>
+<script>
+  // Add your JavaScript code here
+  // Function to toggle the logout popup
+  function openPopup() {
+      document.getElementById('logoutPopup').style.display = 'block';
+  }
+
+  // Function to close the logout popup
+  function closePopup() {
+      document.getElementById('logoutPopup').style.display = 'none';
+  }
+
+  // Event listener for the logout button
+  document.getElementById('loginButton').addEventListener('click', function() {
+      if (localStorage.getItem('username')) {
+          document.getElementById('userName').style.display = 'block';
+          document.getElementById('loginButton').innerHTML = 'Logout';
+          document.getElementById('loginButton').removeEventListener('click', openPopup);
+          document.getElementById('loginButton').addEventListener('click', openPopup);
+      } else {
+          window.location.href = 'login.html';
+      }
+  });
+
+  // Event listener for the logout button inside the popup
+  document.getElementById('logoutBtn').addEventListener('click', function() {
+      localStorage.removeItem('username');
+      document.getElementById('userName').style.display = 'none';
+      document.getElementById('loginButton').innerHTML = 'Login';
+      document.getElementById('loginButton').removeEventListener('click', openPopup);
+      document.getElementById('loginButton').addEventListener('click', function() {
+          window.location.href ='login.html';
+      });
+      closePopup();
+  });
+</script>
+<!-- JavaScript for smooth scrolling and night mode toggle -->
+<script>
+// Smooth scrolling for start tracking button
+document.getElementById('start-tracking').addEventListener('click', function() {
+  document.getElementById('activity-link').click();
+});
+
+// Night mode toggle functionality
+document.getElementById('night-mode-toggle').addEventListener('change', function() {
+  document.body.classList.toggle('night-mode');
+});
+</script>
+
+</body>
+</html>

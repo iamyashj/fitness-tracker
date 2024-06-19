@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nutrition Log</title>
+  <style>
+    body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;z)
+  padding: 0;
+  background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
+  
+}
+
+
+
+#nutritionTable {
+  border-collapse: collapse;
+  width: 80%;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#nutritionTable th,
+#nutritionTable td {
+  border: 1px solid #ccc;
+  padding: 12px 15px;
+  text-align: left;
+}
+
+#nutritionTable th {
+  background-color: #333;
+  color: #fff;
+  font-weight: normal;
+}
+
+#nutritionTable tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+  </style>
+
+</head>
+<body>
+  <h1></h1>
+
+  <table id="nutritionTable">
+    <caption>Nutrition Facts per 100g</caption>
+    <tr>
+      <th>Food Item</th>
+      <th>Calories</th>
+      <th>Protein (g)</th>
+      <th>Carbs (g)</th>
+      <th>Fat (g)</th>
+    </tr>
+    <tr>
+      <td>Apple</td>
+      <td>52</td>
+      <td>0.3</td>
+      <td>14</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <td>Banana</td>
+      <td>89</td>
+      <td>1.1</td>
+      <td>23</td>
+      <td>0.3</td>
+    </tr>
+    <tr>
+      <td>Chicken Breast</td>
+      <td>165</td>
+      <td>31</td>
+      <td>0</td>
+      <td>3.6</td>
+    </tr>
+    
+    <tr>
+      <td>Nut & Berry<br>Parfait</td>
+      <td>120</td>
+      <td>20</td>
+      <td>5g</td>
+      <td>2g</td>
+    </tr>
+    
+    <tr>
+      <td>Brown Rice<br>(1 cup, cooked)</td>
+      <td>215</td>
+      <td>5</td>
+      <td>45</td>
+      <td>1.8</td>
+    </tr>
+    
+    <tr>
+      <td>Greek Yogurt<br>(1 cup)</td>
+      <td>133</td>
+      <td>11</td>
+      <td>9</td>
+      <td>7.4</td>
+    </tr>
+    
+    <tr>
+      <td>Almonds<br>(1 oz)</td>
+      <td>164</td>
+      <td>6</td>
+      <td>6</td>
+      <td>14</td>
+    </tr>
+    
+    <tr>
+      <td>Coconut Water<br>(8 oz)</td>
+      <td>45</td>
+      <td>0</td>
+      <td>11</td>
+      <td>0</td>
+    </tr>
+    
+    <tr>
+      <td>Vegetable Juice</td>
+      <td>50</td>
+      <td>2</td>
+      <td>10</td>
+      <td>0</td>
+    </tr>
+    
+    <!-- Add more rows for additional food items -->
+  </table>
+
+  <script>
+    // Function to add meal entry to the log
+function addMeal() {
+  var foodItem = document.getElementById("foodItem").value;
+  var portionSize = document.getElementById("portionSize").value;
+  var calories = document.getElementById("calories").value;
+  var protein = document.getElementById("protein").value;
+  var carbs = document.getElementById("carbs").value;
+  var fat = document.getElementById("fat").value;
+  var mealEntries = document.getElementById("mealEntries");
+
+  // Validate input fields
+  if (foodItem !== "" && portionSize !== "" && calories !== "" && protein !== "" && carbs !== "" && fat !== "") {
+    // Create a new meal entry
+    var entry = document.createElement("div");
+    entry.innerHTML = `
+      <strong>Food Item:</strong> ${foodItem}<br>
+      <strong>Portion Size (grams):</strong> ${portionSize}<br>
+      <strong>Calories:</strong> ${calories}<br>
+      <strong>Protein (g):</strong> ${protein}<br>
+      <strong>Carbs (g):</strong> ${carbs}<br>
+      <strong>Fat (g):</strong> ${fat}<br><br>
+    `;
+    mealEntries.appendChild(entry);
+
+    // Clear the input fields
+    document.getElementById("foodItem").value = "";
+    document.getElementById("portionSize").value = "";
+    document.getElementById("calories").value = "";
+    document.getElementById("protein").value = "";
+    document.getElementById("carbs").value = "";
+    document.getElementById("fat").value = "";
+  } else {
+    alert("Please fill in all fields.");
+  }
+}
+
+  </script>
+</body>
+</html>

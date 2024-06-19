@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nutrition Log</title>
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+#mealLog {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 8px 16px;
+  background-color: purple;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: grey;
+}
+
+#mealEntries {
+  margin-top: 20px;
+}
+
+  </style>
+</head>
+<body>
+  <h1>Nutrition Log</h1>
+  
+  <div id="mealLog">
+    <h2>Record Your Meals</h2>
+     
+   
+    <label for="foodItem"></label>
+    <select id="foodItem">
+      <option value="">Select Food Item</option>
+      <option value="Apple">Apple</option>
+      <option value="Banana">Banana</option>
+      <option value="Chicken Breast">Chicken Breast</option>
+      <option value="Nut & Berry Parfait">Nut & Berry Parfait</option>
+      <option value="Brown Rice">Brown Rice</option>
+      <option value="Greek Yogurt">Greek Yogurt</option>
+      <option value="Almonds">Almonds</option>
+      <option value="Coconut Water">Coconut Water</option>
+      <option value="Vegetable Juice">Spinach</option>
+    
+    <label for="portionSize">Portion Size (grams): </label>
+    <input type="number" id="portionSize" min="0">
+    <label for="calories">Calories: </label>
+    <input type="number" id="calories" min="0">
+    <label for="protein">Protein (g): </label>
+    <input type="number" id="protein" min="0">
+    <label for="carbs">Carbs (g): </label>
+    <input type="number" id="carbs" min="0">
+    <label for="fat">Fat (g): </label>
+    <input type="number" id="fat" min="0">
+    <button onclick="addMeal()">Add Meal</button>
+    <div id="mealEntries">
+      <!-- Meal entries will be displayed here -->
+    </div>
+  </div>
+  
+ 
+  
+
+  <script>
+    // Function to add meal entry to the log
+function addMeal() {
+  var foodItem = document.getElementById("foodItem").value;
+  var portionSize = document.getElementById("portionSize").value;
+  var calories = document.getElementById("calories").value;
+  var protein = document.getElementById("protein").value;
+  var carbs = document.getElementById("carbs").value;
+  var fat = document.getElementById("fat").value;
+  var mealEntries = document.getElementById("mealEntries");
+
+  // Validate input fields
+  if (foodItem !== "" && portionSize !== "" && calories !== "" && protein !== "" && carbs !== "" && fat !== "") {
+    // Create a new meal entry
+    var entry = document.createElement("div");
+    entry.innerHTML = `
+      <strong>Food Item:</strong> ${foodItem}<br>
+      <strong>Portion Size (grams):</strong> ${portionSize}<br>
+      <strong>Calories:</strong> ${calories}<br>
+      <strong>Protein (g):</strong> ${protein}<br>
+      <strong>Carbs (g):</strong> ${carbs}<br>
+      <strong>Fat (g):</strong> ${fat}<br><br>
+    `;
+    mealEntries.appendChild(entry);
+
+    // Clear the input fields
+    document.getElementById("foodItem").value = "";
+    document.getElementById("portionSize").value = "";
+    document.getElementById("calories").value = "";
+    document.getElementById("protein").value = "";
+    document.getElementById("carbs").value = "";
+    document.getElementById("fat").value = "";
+  } else {
+    alert("Please fill in all fields.");
+  }
+}
+
+  </script>
+</body>
+</html>

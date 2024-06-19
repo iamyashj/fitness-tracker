@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cycling Tracker</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .cycling-app {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cycling-app h1 {
+            color: #333;
+        }
+        
+        .timer {
+            font-size: 2em;
+            margin: 20px 0;
+        }
+        
+        button {
+            background-color: purple;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        button:hover {
+            background-color: #800080;
+        }
+
+        .calories p {
+            color:black;
+        }
+    </style>
+</head>
+<body>
+    <div class="cycling-app">
+        <h1>Cycling Tracker</h1>
+        <p>Track your cycling sessions and calories burned.</p>
+        <div class="timer">
+            <span id="minutes">00</span>:<span id="seconds">00</span>
+        </div>
+        <button id="start-button">Start</button>
+        <button id="stop-button">Stop</button>
+        <div class="calories">
+            <p>Calories burned: <span id="calories-count">0</span> kcal</p>
+        </div>
+    </div>
+
+    <script>
+        let timerInterval;
+        let totalSeconds = 0;
+        let caloriesBurned = 0;
+        const userWeight = 70; // User's weight in kilograms
+        const cyclingMET = 8.0; // MET value for moderate cycling
+
+        function startTimer() {
+            if (!timerInterval) {
+                timerInterval = setInterval(function() {
+                    totalSeconds++;
+                    updateTimerDisplay();
+                    updateCaloriesBurned();
+                }, 1000);
+            }
+        }
+
+        function stopTimer() {
+            clearInterval(timerInterval);
+            timerInterval = null;
+        }
+
+        function updateTimerDisplay() {
+            document.getElementById("minutes").textContent = String(Math.floor(totalSeconds / 60)).padStart(2, '0');
+            document.getElementById("seconds").textContent = String(totalSeconds % 60).padStart(2, '0');
+        }
+
+        function updateCaloriesBurned() {
+            // Calculate calories burned per second
+            let caloriesPerSecond = (cyclingMET * userWeight * 3.5) / (200 * 60);
+            caloriesBurned += caloriesPerSecond;
+            document.getElementById("calories-count").textContent = caloriesBurned.toFixed(2);
+        }
+
+        document.getElementById("start-button").addEventListener("click", startTimer);
+        document.getElementById("stop-button").addEventListener("click", function() {
+            stopTimer();
+            totalSeconds = 0; // Reset timer
+            caloriesBurned = 0; // Reset calories
+            updateTimerDisplay();
+            updateCaloriesBurned();
+        });
+    </script>
+</body>
+</html>

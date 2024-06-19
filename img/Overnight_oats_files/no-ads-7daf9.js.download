@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[34],{814:function(t,e,a){"use strict";a.r(e);var s=a(0),c=a(5),d=a(2).h;e.default=({tagularDetails:t})=>(Object(s.useEffect)(()=>{Object(c.l)(t)},[]),d("div",{"data-testid":"noAds"}))}}]);
+//# sourceMappingURL=no-ads-7daf9.js.map

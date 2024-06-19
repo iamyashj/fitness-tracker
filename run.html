@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Running Log with Timer</title>
+    <style>
+        /* Basic styling for the form */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #timer {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Running Log with Timer</title>
+            <style>
+                /* Basic styling for the form */
+                body {
+                    font-family: Arial, sans-serif;
+                    background-color: #f9f9f9;
+                    margin: 0;
+                    padding: 0;
+                }
+                .container {
+                    max-width: 400px;
+                    margin: 0 auto;
+                    padding: 20px;
+                    background-color: #fff;
+                    border-radius: 5px;
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                }
+                label {
+                    font-weight: bold;
+                }
+                input[type="text"],
+                input[type="number"] {
+                    width: 100%;
+                    padding: 10px;
+                    margin-bottom: 15px;
+                    border: 1px solid #ccc;
+                    border-radius: 3px;
+                }
+                button {
+                    background-color: #007bff;
+                    color: #fff;
+                    border: none;
+                    padding: 10px 20px;
+                    border-radius: 3px;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #0056b3;
+                }
+                #timer {
+                    font-size: 24px;
+                    margin-top: 20px;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h1>Running Log</h1>
+                <form id="runningForm">
+                    <label for="distance">Distance (km):</label>
+                    <input type="number" id="distance" name="distance" step="1" required>
+                    <label for="time">Time (minutes):</label>
+                    <input type="number" id="time" name="time" step="1" required>
+                    <label for="pace">Pace (min/mile):</label>
+                    <input type="text" id="pace" name="pace" readonly>
+        
+                    <button type="button" onclick="calculatePace()">Calculate Pace</button>
+        
+                </form>
+                <div id="timer">00:00:00</div>
+            </div>
+        
+            <script>
+                let startTime = 0;
+                let timerInterval;
+        
+                function calculatePace() {
+            const distance = parseFloat(document.getElementById('distance').value);
+            const time = parseFloat(document.getElementById('time').value);
+            const pace = time / distance;
+            document.getElementById('pace').value = pace.toFixed(2);
+        
+            // Start the timer when the Calculate Pace button is clicked
+            startTime = Date.now();
+            timerInterval = setInterval(updateTimer, 1000);
+            
+            // Stop the timer after the specified duration
+            setTimeout(stopTimer, duration * 1);
+            }
+        
+            function stopTimer() {
+            clearInterval(timerInterval);
+            const elapsedTime = Date.now() - startTime;
+            const formattedTime = formatTime(elapsedTime);
+            document.getElementById('timer').textContent = formattedTime;
+            
+        
+          // Calculate calories burned
+            const weight = parseFloat(document.getElementById('weight').value); // Add a weight input field to your HTML
+            const met = 10; // MET value for running
+            const calories = (weight / 2.2) * met * (elapsedTime / 60000);
+            document.getElementById('calories').value = calories.toFixed(2); // Add a calories input field to your HTML
+            }
+        
+                function updateTimer() {
+                    const currentTime = Date.now();
+                    const elapsedTime = currentTime - startTime;
+                    const formattedTime = formatTime(elapsedTime);
+                    document.getElementById('timer').textContent = formattedTime;
+                }
+        
+                function formatTime(milliseconds) {
+                    const seconds = Math.floor(milliseconds / 1000);
+                    const minutes = Math.floor(seconds / 60);
+                    const hours = Math.floor(minutes / 60);
+                    return `${hours}:${pad(minutes % 60)}:${pad(seconds % 60)}`;
+                }
+        
+                function pad(number) {
+                    return number.toString().padStart(2, '0');
+                }
+        
+                // Start the timer when the page loads
+                startTimer();
+            </script>
+        </body>
+        </html>

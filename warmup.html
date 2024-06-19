@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>warm-up</title>
+  <style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .section {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Warm-Up</h1>
+    <div class="section">
+      <h2>Flexibility</h2>
+      <label for="flexibility">Reaching Distance (in inches):</label>
+      <input type="number" id="flexibility">
+      <button onclick="recordFlexibility()">Record</button>
+      <p id="flexibilityLog"></p>
+    </div>
+    <div class="section">
+      <h2>Cardiovascular Endurance</h2>
+      <label for="endurance">Time/Distance Covered (in minutes/miles):</label>
+      <input type="text" id="endurance">
+      <button onclick="recordEndurance()">Record</button>
+      <p id="enduranceLog"></p>
+    </div>
+    <div class="section">
+      <h2>Strength</h2>
+      <label for="strength">Number of Reps (bodyweight exercises):</label>
+      <input type="number" id="strength">
+      <button onclick="recordStrength()">Record</button>
+      <p id="strengthLog"></p>
+    </div>
+  </div>
+
+  <script>
+    function recordFlexibility() {
+  const flexibilityInput = document.getElementById('flexibility');
+  const flexibilityLog = document.getElementById('flexibilityLog');
+  const flexibilityValue = flexibilityInput.value;
+  flexibilityLog.innerHTML = `Recorded flexibility: ${flexibilityValue} inches`;
+  flexibilityInput.value = '';
+}
+
+function recordEndurance() {
+  const enduranceInput = document.getElementById('endurance');
+  const enduranceLog = document.getElementById('enduranceLog');
+  const enduranceValue = enduranceInput.value;
+  enduranceLog.innerHTML = `Recorded endurance: ${enduranceValue}`;
+  enduranceInput.value = '';
+}
+
+function recordStrength() {
+  const strengthInput = document.getElementById('strength');
+  const strengthLog = document.getElementById('strengthLog');
+  const strengthValue = strengthInput.value;
+  strengthLog.innerHTML = `Recorded strength: ${strengthValue} reps`;
+  strengthInput.value = '';
+}
+
+  </script>
+
+</body>
+</html>

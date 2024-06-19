@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Registration and Login Forms</title>
+<style>
+  /* Split the screen in half */
+  .split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+
+  /* Control the left side */
+  .left {
+    left: 0;
+    background-color: #f0f0f0; /* Light grey background */
+  }
+
+  /* Control the right side */
+  .right {
+    right: 0;
+    background-color: #fff; /* White background */
+  }
+
+  /* Style the forms */
+  form {
+    margin: 50px;
+    padding: 20px;
+    background: #e7e7e7; /* Light grey background */
+    border-radius: 5px;
+  }
+
+  /* Style the inputs and button */
+  input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  button {
+    width: calc(100% - 40px);
+    padding: 10px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+
+  button {
+    background-color:purple; /* Blue background */
+    color: white;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color:purple; /* Darker blue background on hover */
+  }
+
+  /* Style the headings */
+  h2 {
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<div class="split left">
+  <h2>User Registration</h2>
+  <form id="registrationForm">
+    Username: <input type="text" id="username" required><br>
+    Password: <input type="password" id="password" required><br>
+    Email: <input type="email" id="email" required><br>
+    <button type="button" onclick="registerUser()">Register</button>
+  </form>
+</div>
+
+<div class="split right">
+  <h2>User Login</h2>
+  <form id="loginForm">
+    Username: <input type="text" id="loginUsername" required><br>
+    Password: <input type="password" id="loginPassword" required><br>
+    <button type="button" onclick="loginUser()">Login</button>
+  </form>
+</div>
+
+<script>
+    // script.js
+
+// Function to handle the registration
+function registerUser() {
+  // Get the user input from the form
+  var username = document.getElementById('username').value;
+  var password = document.getElementById('password').value;
+  var email = document.getElementById('email').value;
+
+  // Create a user object to store the data
+  var user = {
+    username: username,
+    password: password, // Note: Storing passwords in localStorage is not secure.
+    email: email
+  };
+
+  // Convert the user object into a string for localStorage
+  var userStr = JSON.stringify(user);
+
+  // Store the user information in localStorage
+  localStorage.setItem('userInfo', userStr);
+
+  // Confirmation
+  alert('User registered successfully!');
+}
+
+// Function to handle user login
+function loginUser() {
+  // Get the user input from the login form
+  var username = document.getElementById('loginUsername').value;
+  var password = document.getElementById('loginPassword').value;
+
+  // Retrieve the stored user information
+  var storedUser = localStorage.getItem('userInfo');
+  var userInfo = JSON.parse(storedUser);
+
+  // Check if the entered details match the stored data
+  if(username === userInfo.username && password === userInfo.password) {
+    alert('Login successful!');
+  } else {
+    alert('Incorrect username or password.');
+  }
+}
+</script>
+
+</body>
+</html>
